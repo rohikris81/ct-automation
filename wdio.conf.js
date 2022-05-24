@@ -1,3 +1,5 @@
+import wdioConf from './wdio.conf.js'
+
 exports.config = {
     //
     // ====================
@@ -23,6 +25,16 @@ exports.config = {
     specs: [
         './test/specs/**/*.js'
     ],
+    // define specific suites
+    suites: {
+        furno: [
+            './test/specs/furnogamy/tcLandingPage.js',
+           
+        ],
+        driving: [
+            './test/specs/driving/test.js',
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'

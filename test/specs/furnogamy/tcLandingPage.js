@@ -1,5 +1,5 @@
 
-import { myUrl, txt_title, link_gallery, link_contactUs, link_about, txt_abouttitle } from '../data/testData.js';
+import { myUrl, txt_title, link_gallery, link_contactUs, link_about, txt_abouttitle, url_aboutus, img_logo } from '../data/furnogamy.js';
 
 describe('Verification of Landing Page - Furnogamy', ()=>{
 
@@ -23,13 +23,13 @@ describe('Verification of Landing Page - Furnogamy', ()=>{
     it('To verify Page landing for About Navigation', async()=> {
         await browser.url(myUrl);
         await $(link_about).click();
-        await expect(browser).toHaveUrl('https://www.furnogamy.com/aboutus#about_us_dt71u');
+        await expect(browser).toHaveUrl(url_aboutus);
         await expect($(txt_abouttitle)).toBeDisplayed();
     });
 
     it('To verify meta elements on landing page', async()=> {
         await browser.url(myUrl);
-      console.log(await $('//meta[@name="description"]').getAttribute("content"));
+      console.log(await $(meta_description).getAttribute("content"));
     });
     
 });
