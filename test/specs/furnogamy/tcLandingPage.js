@@ -1,34 +1,34 @@
 
+import { myUrl, txt_title, link_gallery, link_contactUs, link_about, txt_abouttitle } from '../data/testData.js';
+
 describe('Verification of Landing Page - Furnogamy', ()=>{
 
     it('To verify page title', async ()=>{
-           await browser.url('https://www.furnogamy.com/');
-           await expect(browser).toHaveTitle('Furnogamy');
+           await browser.url(myUrl);
+           await expect(browser).toHaveTitle(txt_title);
     });
 
     it('To verify logo exist on page', async ()=> {
-        await browser.url('https://www.furnogamy.com/');
-        const mylogo = $('.logo');
-        await expect(mylogo).toExist();
+        await browser.url(myUrl);
+        await expect($(img_logo)).toExist();
     });
 
     it('To verify navigation links', async()=>{
-        await browser.url('https://www.furnogamy.com/');
-       // const expectedlinks = ["About","Contact Us", "Gallery"];
-        await expect($('=About')).toExist();
-        await expect($('=Contact Us')).toExist();
-        await expect($('=Gallery')).toExist();
+        await browser.url(myUrl);
+        await expect($(link_gallery)).toExist();
+        await expect($(link_contactUs)).toExist();
+        await expect($(link_about)).toExist();
     });
 
     it('To verify Page landing for About Navigation', async()=> {
-        await browser.url('https://www.furnogamy.com/');
-        await $('=About').click();
+        await browser.url(myUrl);
+        await $(link_about).click();
         await expect(browser).toHaveUrl('https://www.furnogamy.com/aboutus#about_us_dt71u');
-        await expect($('h2=About')).toBeDisplayed();
+        await expect($(txt_abouttitle)).toBeDisplayed();
     });
 
     it('To verify meta elements on landing page', async()=> {
-        await browser.url('https://www.furnogamy.com/');
+        await browser.url(myUrl);
       console.log(await $('//meta[@name="description"]').getAttribute("content"));
     });
     
