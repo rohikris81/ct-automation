@@ -1,5 +1,3 @@
-import wdioConf from './wdio.conf.js'
-
 exports.config = {
     //
     // ====================

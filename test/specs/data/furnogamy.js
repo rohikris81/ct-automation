@@ -1,7 +1,7 @@
 
-// Furnogamy ====================================================
+var furn_home = function() {
 
-// Variables
+    // Variables
 var myUrl = 'https://www.furnogamy.com/';
 var txt_title = 'Furnogamy';
 var url_aboutus = 'https://www.furnogamy.com/aboutus#about_us_dt71u';
@@ -15,5 +15,6 @@ var link_contactUs = '=Contact Us';
 var link_about = '=About';
 var meta_description = '//meta[@name="description"]';
 
+};
 
-//====================================================================
+module.exports = new furn_home();

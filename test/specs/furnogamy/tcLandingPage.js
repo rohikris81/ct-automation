@@ -1,35 +1,34 @@
-
-import { myUrl, txt_title, link_gallery, link_contactUs, link_about, txt_abouttitle, url_aboutus, img_logo } from '../data/furnogamy.js';
+var data = require('../data/furnogamy.js');
 
 describe('Verification of Landing Page - Furnogamy', ()=>{
 
     it('To verify page title', async ()=>{
-           await browser.url(myUrl);
-           await expect(browser).toHaveTitle(txt_title);
+           await browser.url('https://www.furnogamy.com/');
+           await expect(browser).toHaveTitle('Furnogamy');
     });
 
     it('To verify logo exist on page', async ()=> {
-        await browser.url(myUrl);
-        await expect($(img_logo)).toExist();
+        await browser.url('https://www.furnogamy.com/');
+        await expect($('.logo')).toExist();
     });
 
     it('To verify navigation links', async()=>{
-        await browser.url(myUrl);
-        await expect($(link_gallery)).toExist();
-        await expect($(link_contactUs)).toExist();
-        await expect($(link_about)).toExist();
+        await browser.url('https://www.furnogamy.com/');
+        await expect($('=Gallery')).toExist();
+        await expect($('=Contact Us')).toExist();
+        await expect($('=About')).toExist();
     });
 
     it('To verify Page landing for About Navigation', async()=> {
-        await browser.url(myUrl);
-        await $(link_about).click();
-        await expect(browser).toHaveUrl(url_aboutus);
-        await expect($(txt_abouttitle)).toBeDisplayed();
+        await browser.url('https://www.furnogamy.com/');
+        await $('=About').click();
+        await expect(browser).toHaveUrl('https://www.furnogamy.com/aboutus#about_us_dt71u');
+       // await expect($('data.txt_abouttitle')).toBeDisplayed();
     });
 
     it('To verify meta elements on landing page', async()=> {
-        await browser.url(myUrl);
-      console.log(await $(meta_description).getAttribute("content"));
+        await browser.url('https://www.furnogamy.com/');
+      console.log(await $('//meta[@name="description"]').getAttribute("content"));
     });
     
 });
